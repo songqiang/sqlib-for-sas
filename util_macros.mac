@@ -19,3 +19,25 @@
     end;
 %mend assert;
 
+%macro apply_func(func, lst);
+    %local _i_;
+    %let _i_ = 1;
+    
+    %local item;
+    %let item = %scan(&lst, _i_);
+    %do %while(%length(&item) > 0);
+        &func (&item); 
+    %end;
+%mend;
+
+%macro apply_mac(mac, lst);
+    %local _i_;
+    %let _i_ = 1;
+    
+    %local item;
+    %let item = %scan(&lst, _i_);
+    %do %while(%length(&item) > 0);
+        %func (&item); 
+    %end;
+%mend;
+

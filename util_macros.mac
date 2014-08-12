@@ -1,0 +1,21 @@
+/*
+ * Utility Macros for SAS Programming
+ * Song Qiang <keeyang@ustc.edu> 2014
+ *
+ */
+ 
+ 
+%macro source_include(path);
+    options source2;
+    %include &path;
+    options nosource2;
+%mend source_include;
+
+
+%macro assert(cond);
+    if not(&cond) then do;
+        putlog "assertion failed: &cond";
+        abort;
+    end;
+%mend assert;
+

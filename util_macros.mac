@@ -4,14 +4,6 @@
  *
  */
  
- 
-%macro source_include(path);
-    options source2;
-    %include &path;
-    options nosource2;
-%mend source_include;
-
-
 %macro assert(cond);
     if not(&cond) then do;
         putlog "assertion failed: &cond";
@@ -24,9 +16,10 @@
     %let _i_ = 1;
     
     %local item;
-    %let item = %scan(&lst, _i_);
+    %let item = %scan(&lst, &_i_);
     %do %while(%length(&item) > 0);
         &func (&item); 
+        %let _i_ = %eval(&_i_ + 1);
     %end;
 %mend;
 
@@ -38,6 +31,7 @@
     %let item = %scan(&lst, _i_);
     %do %while(%length(&item) > 0);
         %func (&item); 
+        %let _i_ = %eval(&_i_ + 1);
     %end;
 %mend;
 

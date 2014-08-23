@@ -4,10 +4,10 @@
 # Song, Qiang <keeyang@ustc.edy> 2014 
 #
 
-if [ $# = 0 ];
+if [ $# == 0 ];
 then
     echo "Usage: findmac macro_name <dir>";
-elif [ $# = 1 ];
+elif [ $# == 1 ];
 then
     macname=$1;
     wd=;

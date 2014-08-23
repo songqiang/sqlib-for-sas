@@ -10,7 +10,7 @@ then
 elif [ $# == 1 ];
 then
     macname=$1;
-    wd=;
+    wd=".";
 else
     macname=$1;
     wd=$2;

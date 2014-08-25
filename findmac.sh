@@ -23,7 +23,7 @@ found=$(egrep --line-number --color \
 if [ -n "$found" ];
 then
     echo $found;
-    f=$(echo $found|cut -f1 -d:);
+    f=$(echo $found|head -1|cut -f1 -d:);
     cat $f|awk 'BEGIN {IGNORECASE = 1;} /%macro[ \t]+'$macname'/,/%mend/ {print $0;}';
 fi
     
@@ -32,13 +32,14 @@ then
     found=$(egrep --line-number --color \
         --recursive --include=\*.{sas,mac,inc} \
         --ignore-case "%let[ \t]+$macname" $wd);
+
+    if [ -n "$found" ];
+    then
+        echo $found;
+        f=$(echo $found|head -1|cut -f1 -d:);
+        cat $f|awk 'BEGIN {IGNORECASE = 1;} /%let[ \t]+'$macname'/,/;/ {print $0;}';
+    fi
 fi
 
-if [ -n "$found" ];
-then
-    echo $found;
-    f=$(echo $found|cut -f1 -d:);
-    cat $f|awk 'BEGIN {IGNORECASE = 1;} /%let[ \t]+'$macname'/,/;/ {print $0;}';
-fi
 
 

@@ -11,7 +11,7 @@ then
     exit 0;
 fi
 
-egrep --color --line-number --ignore-case \
+grep --color --line-number --ignore-case \
     "\(ERROR\|WARNING\|uninitialized\|not found\|overwritten\|no observations\|has more than one data set with\|have been converted\)" \
     $1;
     

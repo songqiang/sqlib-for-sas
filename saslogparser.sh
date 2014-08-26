@@ -12,7 +12,7 @@ then
 fi
 
 egrep --color --line-number --context=3 --ignore-case \
-    "(ERROR|WARNING|invalid|uninitialized|not found|overwritten|no observations|has more than one data set with|have been converted|went to a new line|operation on missing values)" \
+    "(ERROR|WARNING|invalid|uninitialized|not found|overwritten|no observations|has more than one data set with|have been converted|went to a new line|operation on missing values|never been referenced|has 0 observations|out of proper order|format was too small|truncated to)" \
     $1;
     
 

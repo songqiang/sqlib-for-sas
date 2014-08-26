@@ -11,10 +11,22 @@ then
     exit 0;
 fi
 
-egrep --color --line-number --context=3 --ignore-case \
-    "(ERROR|WARNING|invalid|uninitialized|not found|overwritten|no observations|has more than one data set with|have been converted|went to a new line|operation on missing values|never been referenced|has 0 observations|out of proper order|format was too small|truncated to)" \
+egrep --color --line-number --ignore-case \
+    -e "ERROR" \
+    -e "WARNING" \
+    -e "invalid" \
+    -e "uninitialized" \
+    -e "not found" \
+    -e "overwrit" \
+    -e "no observations" \
+    -e "has more than one data set with" \
+    -e "have been converted" \
+    -e "went to a new line" \
+    -e "operation on missing values" \
+    -e "never been referenced" \
+    -e "has 0 observations" \
+    -e "out of proper order" \
+    -e "format was too small" \
+    -e "truncated to" \
     $1;
     
-
-    
-

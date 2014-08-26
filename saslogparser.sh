@@ -17,6 +17,7 @@ egrep --color --line-number --ignore-case \
     -e "invalid" \
     -e "uninitialized" \
     -e "not found" \
+    -e "not resolved" \
     -e "overwrit" \
     -e "no observations" \
     -e "has more than one data set with" \
@@ -35,5 +36,7 @@ egrep --color --line-number --ignore-case \
     -e "Multiple lengths were specified" \
     -e "Division by zero" \
     -e "stopped due to looping" \
+    -e "was not long enough" \
+    -e "has the same name as" \
     $1;
     

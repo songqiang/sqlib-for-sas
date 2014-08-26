@@ -11,7 +11,7 @@ then
     exit 0;
 fi
 
-grep --color --line-number --ignore-case \
+grep --color --line-number --context=3 --ignore-case \
     "\(ERROR\|WARNING\|invalid\|uninitialized\|not found\|overwritten\|no observations\|has more than one data set with\|have been converted\|went to a new line\|operation on missing values\)" \
     $1;
     

@@ -12,7 +12,7 @@ then
 fi
 
 grep --color --line-number --ignore-case \
-    "\(ERROR\|WARNING\|invalid\|uninitialized\|not found\|overwritten\|no observations\|has more than one data set with\|have been converted\|went to a new line\)" \
+    "\(ERROR\|WARNING\|invalid\|uninitialized\|not found\|overwritten\|no observations\|has more than one data set with\|have been converted\|went to a new line\|operation on missing values\)" \
     $1;
     
 

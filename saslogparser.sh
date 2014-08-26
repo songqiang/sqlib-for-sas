@@ -24,6 +24,7 @@ egrep --color --line-number --ignore-case \
     -e "went to a new line" \
     -e "Missing values were generated" \
     -e "operation on missing values" \
+    -e "have been set to missing values" \
     -e "never been referenced" \
     -e "has 0 observations" \
     -e "out of proper order" \

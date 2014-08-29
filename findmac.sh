@@ -13,30 +13,30 @@ then
     wd=".";
 else
     macname=$1;
-    wd=$2;
+    wd=${*:2};
 fi
 
-found=$(egrep --line-number --color \
+found=$(egrep --line-number --color -files-with-matches \
     --recursive --include=\*.{sas,mac,inc} \
     --ignore-case "%macro[ \t]+$macname" $wd);
 
 if [ -n "$found" ];
 then
-    echo $found;
-    f=$(echo $found|head -1|cut -f1 -d:);
+    for f in $found; do echo $f; done
+    echo "------------------------------------";
     cat $f|awk 'BEGIN {IGNORECASE = 1;} /%macro[ \t]+'$macname'/,/%mend/ {print $0;}';
 fi
     
 if [ -z "$found" ];
 then
-    found=$(egrep --line-number --color \
+    found=$(egrep --line-number --color --color -files-with-matches \
         --recursive --include=\*.{sas,mac,inc} \
         --ignore-case "%let[ \t]+$macname" $wd);
 
     if [ -n "$found" ];
     then
-        echo $found;
-        f=$(echo $found|head -1|cut -f1 -d:);
+        for f in $found; do echo $f; done
+        echo "------------------------------------";
         cat $f|awk 'BEGIN {IGNORECASE = 1;} /%let[ \t]+'$macname'/,/;/ {print $0;}';
     fi
 fi

@@ -44,6 +44,7 @@ function highlight_err_warnings # logfile
         -e "stopped due to looping" \
         -e "was not long enough" \
         -e "has the same name as" \
+        -e "is not the same type" \
         $logfile;
 }        
     

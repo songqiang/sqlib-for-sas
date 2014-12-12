@@ -81,6 +81,8 @@ function highlight_err_warnings # lgofile
         -e "does not exist" \
         -e "might change in a future SAS release" \
         -e "is not the same type" \
+        -e "do not comply with integrity constraint" \
+        -e "failed while attempting to" \
         -e "misspelled as";
 }
 

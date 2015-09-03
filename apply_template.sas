@@ -4,7 +4,7 @@
  *
  */
 
-%macro apply_template(__templ__, __lst__);
+%macro apply_template(__lst__, __templ__);
     %local _i_ _n_;
     %let _n_ = %sysfunc(countw(&__lst__));
 
@@ -12,6 +12,6 @@
         %local _e_;
         %let _e_ = %scan(&__lst__, &_i_);
 
-        %sysfunc(tranwrd(%str(&__templ__), {}, &_e_))
+        %sysfunc(tranwrd(%nrbquote(&__templ__), {}, &_e_))
     %end;
 %mend;
